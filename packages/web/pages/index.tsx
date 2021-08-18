@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import { Button } from "@bot/ui";
 
 const Home: NextPage = () => {
   return (
@@ -7,7 +8,7 @@ const Home: NextPage = () => {
       <Head>
         <title>UMSF Bot</title>
       </Head>
-      Home page
+      <Button label="label" />
     </div>
   );
 };
