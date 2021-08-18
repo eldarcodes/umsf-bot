@@ -1,0 +1,32 @@
+{
+  "name": "umsfbot",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "commit": "cz",
+    "clear": "rm -rf ./node_modules && rm -rf rm -rf ./packages/**/node_modules && rm -rf ./packages/**/dist"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "yarn prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "global"
+    }
+  }
+}
