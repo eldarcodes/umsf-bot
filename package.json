@@ -9,8 +9,10 @@
   },
   "scripts": {
     "start:web": "yarn workspace @bot/web run dev",
+    "start:ui": "yarn workspace @bot/ui run storybook",
     "lint:web": "yarn workspace @bot/web run lint",
     "build:web": "yarn workspace @bot/web run build",
+    "build:ui": "yarn workspace @bot/web run build-storybook",
     "commit": "cz",
     "clear": "rm -rf ./node_modules && rm -rf rm -rf ./packages/**/node_modules && rm -rf ./packages/**/dist",
     "prepare": "husky install"
