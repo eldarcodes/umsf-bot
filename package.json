@@ -8,7 +8,8 @@
   },
   "scripts": {
     "commit": "cz",
-    "clear": "rm -rf ./node_modules && rm -rf rm -rf ./packages/**/node_modules && rm -rf ./packages/**/dist"
+    "clear": "rm -rf ./node_modules && rm -rf rm -rf ./packages/**/node_modules && rm -rf ./packages/**/dist",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
