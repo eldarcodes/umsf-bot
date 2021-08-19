@@ -1,0 +1,18 @@
+{
+  "name": "UMSF Bot",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/bot.png",
+      "type": "image/png",
+      "sizes": "200x200"
+    },
+    {
+      "src": "/img/bot512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "splash_pages": null
+}
