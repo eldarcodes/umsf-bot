@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/dist/client/router";
+import { Loader } from "@bot/ui";
+import { login as fetchLogin } from "../../api";
 import { get } from "lodash";
-import { Spin } from "@bot/ui";
+import { useRouter } from "next/router";
 
 const AuthPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -11,25 +12,15 @@ const AuthPage: React.FC = () => {
 
   const login = async () => {
     setLoading(true);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          id: token,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    try {
+      const response = await fetchLogin(token);
 
-    const json = await response.json();
+      const userToken = get(response, "data.token", null);
+
+      localStorage.setItem("token", userToken);
+      router.push("/dashboard");
+    } catch (e) {}
     setLoading(false);
-    const userToken = get(json, "data.token", "");
-
-    localStorage.setItem("token", userToken);
-    router.push("/home");
   };
 
   useEffect(() => {
@@ -39,7 +30,7 @@ const AuthPage: React.FC = () => {
   }, [token]);
 
   if (loading) {
-    return <Spin />;
+    return <Loader height="600px" size="large" />;
   }
 
   return null;

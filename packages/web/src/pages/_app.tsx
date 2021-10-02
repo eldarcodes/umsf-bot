@@ -11,7 +11,7 @@ if (!isServer) {
 }
 
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { retry: false } },
+  defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
