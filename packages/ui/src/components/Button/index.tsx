@@ -1,5 +1,5 @@
 import React from "react";
-import type { ButtonProps } from "antd";
+import type { ButtonProps } from "@bot/ui";
 import StyledButton from "./Button.style";
 
 export interface MyButtonProps extends ButtonProps {

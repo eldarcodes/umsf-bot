@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutProps } from "antd";
+import { LayoutProps } from "@bot/ui";
 import MyContent from "./ContentWrapper.style";
 
 export const ContentWrapper: React.FC<LayoutProps> = ({

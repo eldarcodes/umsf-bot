@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button } from "@bot/ui";
 import styled from "styled-components";
 
 const MyButton: any = styled(Button)``;

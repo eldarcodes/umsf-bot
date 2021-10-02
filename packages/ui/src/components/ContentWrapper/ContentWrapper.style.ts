@@ -1,4 +1,4 @@
-import { Layout } from "antd";
+import { Layout } from "@bot/ui";
 import styled from "styled-components";
 
 const { Content } = Layout;
