@@ -1,25 +1,17 @@
 import { NextPage } from "next";
+import { Alert, Space } from "@bot/ui";
 import { useTypeSafeTranslation } from "../hooks/useTypeSafeTranslation";
-import { Alert, Select, Space } from "@bot/ui";
-import { useTranslation } from "react-i18next";
+import Layout from "@bot/web/src/components/Layout";
 
 const Home: NextPage = () => {
-  const { i18n } = useTranslation();
-
   const { t } = useTypeSafeTranslation();
 
   return (
-    <Space style={{ padding: 30 }}>
-      <Alert message={t("umsf")} type="info" showIcon />
-      <Select
-        defaultValue="ru"
-        style={{ width: 200 }}
-        onChange={value => i18n.changeLanguage(value)}
-      >
-        <Select.Option value="ru">🇷🇺 Русский</Select.Option>
-        <Select.Option value="uk">🇺🇦 Український</Select.Option>
-      </Select>
-    </Space>
+    <Layout>
+      <Space style={{ padding: 30 }}>
+        <Alert message={t("umsf")} type="info" showIcon />
+      </Space>
+    </Layout>
   );
 };
 
