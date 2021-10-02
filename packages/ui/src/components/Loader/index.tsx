@@ -2,7 +2,7 @@ import React from "react";
 import type { SpinProps } from "@bot/ui";
 import StyledLoader from "./Loader.style";
 
-interface LoaderProps {
+export interface LoaderProps {
   height: string;
 }
 
