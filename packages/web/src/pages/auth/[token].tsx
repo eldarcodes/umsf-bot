@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/dist/client/router";
 import { Loader } from "@bot/ui";
 import { login as fetchLogin } from "../../api";
 import { get } from "lodash";
+import { useRouter } from "next/router";
 
 const AuthPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
