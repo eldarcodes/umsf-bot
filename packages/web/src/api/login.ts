@@ -1,11 +1,15 @@
 import Api from ".";
+import { get } from "lodash";
 
 export const login = async (id: any) => {
-  const response = await Api.post("auth/login", { id });
+  const { data } = await Api.post("auth/login", { id });
 
-  if (!response.data) {
+  if (!data) {
     throw new Error("Something went wrong.");
   }
 
-  return response.data;
+  const userToken = get(data, "data.token", null);
+  localStorage.setItem("token", userToken);
+
+  return data;
 };

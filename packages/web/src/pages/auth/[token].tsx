@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Loader } from "@bot/ui";
 import { login as fetchLogin } from "../../api";
-import { get } from "lodash";
 import { useRouter } from "next/router";
 
 const AuthPage: React.FC = () => {
@@ -13,11 +12,7 @@ const AuthPage: React.FC = () => {
   const login = async () => {
     setLoading(true);
     try {
-      const response = await fetchLogin(token);
-
-      const userToken = get(response, "data.token", null);
-
-      localStorage.setItem("token", userToken);
+      await fetchLogin(token);
       router.push("/dashboard");
     } catch (e) {}
     setLoading(false);
