@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const { t } = useTypeSafeTranslation();
 
   return (
-    <Layout>
+    <Layout title="Home">
       <Space style={{ padding: 30 }}>
         <Alert message={t("umsf")} type="info" showIcon />
       </Space>

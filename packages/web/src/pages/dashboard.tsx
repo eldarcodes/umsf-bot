@@ -8,7 +8,12 @@ import Time from "@bot/web/src/components/Time";
 import { useTypeSafeTranslation } from "../hooks/useTypeSafeTranslation";
 
 const Dashboard: NextPage = () => {
-  const { data, isLoading, isError } = useQuery("user", getUser);
+  // const { data, isLoading, isError } = useQuery("user", getUser);
+  const { data, isLoading, isError } = {
+    data: {},
+    isLoading: false,
+    isError: false,
+  };
 
   const { t } = useTypeSafeTranslation();
 

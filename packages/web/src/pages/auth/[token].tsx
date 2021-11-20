@@ -25,7 +25,7 @@ const AuthPage: React.FC = () => {
   }, [token]);
 
   if (loading) {
-    return <Loader height="600px" size="large" />;
+    return <Loader height={600} size="large" />;
   }
 
   return null;

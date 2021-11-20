@@ -1,4 +1,4 @@
-import Api from ".";
+import Api from "./instance";
 import { get } from "lodash";
 
 export const login = async (id: any) => {

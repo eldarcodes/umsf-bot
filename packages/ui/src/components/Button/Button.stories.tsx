@@ -2,11 +2,11 @@ import "antd/dist/antd.css";
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { MyButton } from ".";
+import { BotButton } from ".";
 
 export default {
   title: "General/Button",
-  component: MyButton,
+  component: BotButton,
   argTypes: {
     type: {
       options: ["default", "primary", "text", "ghost", "dashed", "link"],
@@ -21,10 +21,10 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof MyButton>;
+} as ComponentMeta<typeof BotButton>;
 
-const Template: ComponentStory<typeof MyButton> = args => (
-  <MyButton {...args} />
+const Template: ComponentStory<typeof BotButton> = args => (
+  <BotButton {...args} />
 );
 
 export const Default: typeof Template = Template.bind({});

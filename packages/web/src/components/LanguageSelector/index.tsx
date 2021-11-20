@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Select, LanguageSelectorWrapper } from "@bot/ui";
-import { useTypeSafeTranslation } from "../hooks/useTypeSafeTranslation";
+import { Select } from "@bot/ui";
+import { BotLanguageSelector } from "@bot/ui/styles";
+import { useTypeSafeTranslation } from "../../hooks/useTypeSafeTranslation";
 
 interface LanguageSelectorProps {}
 
-export const LanguageSelector: React.FC<LanguageSelectorProps> = () => {
+const LanguageSelector: React.FC<LanguageSelectorProps> = () => {
   const { i18n } = useTranslation();
   const { t } = useTypeSafeTranslation();
 
@@ -21,11 +22,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = () => {
   };
 
   return (
-    <LanguageSelectorWrapper>
+    <BotLanguageSelector>
       <Select value={language} style={{ width: 200 }} onChange={handleChange}>
         <Select.Option value="ru">🇷🇺 {t("locales.ru")}</Select.Option>
         <Select.Option value="uk">🇺🇦 {t("locales.uk")}</Select.Option>
       </Select>
-    </LanguageSelectorWrapper>
+    </BotLanguageSelector>
   );
 };
+
+export default LanguageSelector;

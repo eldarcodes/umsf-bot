@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Spin } from "@bot/ui";
+import { LoaderProps, Spin } from "@bot/ui";
 
-const Loader: any = styled(Spin)`
-  height: ${(props: any) => props.height || "100px"};
+const Loader = styled(Spin)<LoaderProps>`
+  height: ${props => `${props.height || 100}px`};
 
   display: flex;
   align-items: center;
