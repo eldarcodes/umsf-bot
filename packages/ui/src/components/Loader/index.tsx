@@ -3,7 +3,7 @@ import type { SpinProps } from "@bot/ui";
 import StyledLoader from "./Loader.style";
 
 export interface LoaderProps {
-  height: string;
+  height: number;
 }
 
 export const Loader: React.FC<LoaderProps & SpinProps> = props => {

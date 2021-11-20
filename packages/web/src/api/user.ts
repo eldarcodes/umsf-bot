@@ -1,14 +1,11 @@
-import Api from ".";
+import Api from "./instance";
 
 export const getUser = async () => {
-  const response = await Api.get("user", {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("token") || ""}`,
-    },
-  });
-  if (!response.data) {
+  const { data } = await Api.get("user");
+
+  if (!data) {
     throw new Error("Something went wrong.");
   }
 
-  return response.data;
+  return data;
 };
