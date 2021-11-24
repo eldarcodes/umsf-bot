@@ -2,6 +2,9 @@
   "name": "bot",
   "version": "1.0.0",
   "private": true,
+  "resolutions": {
+    "styled-components": "^5.3.1"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
