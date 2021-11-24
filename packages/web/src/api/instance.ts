@@ -1,8 +1,9 @@
 import axios from "axios";
+import { apiBaseUrl } from "../lib/constants";
 import { isServer } from "../lib/isServer";
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: apiBaseUrl,
   timeout: 1000,
   headers: {
     authorization:
