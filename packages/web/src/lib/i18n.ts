@@ -56,7 +56,7 @@ export const init_i18n = () => {
       detection: DETECTION_OPTIONS,
       fallbackLng: "uk",
       supportedLngs: ["uk", "ru", "en"],
-      debug: !__prod__,
+      // debug: !__prod__,
       interpolation: {
         escapeValue: false,
         format: (value, format, lng) => {
