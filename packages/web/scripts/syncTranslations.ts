@@ -1,5 +1,5 @@
 // @ts-ignore
-import english from "../public/locales/ru/translation.json";
+import english from "../public/locales/en/translation.json";
 import * as fs from "fs";
 import { join } from "path";
 import prettier from "prettier";

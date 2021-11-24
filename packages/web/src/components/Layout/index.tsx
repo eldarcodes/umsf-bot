@@ -7,6 +7,7 @@ import BotError from "../Error";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useTypeSafeTranslation } from "../../hooks/useTypeSafeTranslation";
 
 const { Content } = Layout;
 
@@ -17,22 +18,31 @@ interface LayoutProps {
 }
 
 const BotLayout: React.FC<LayoutProps> = ({
-  title,
+  title: pageTitle,
   children,
   loading,
   error,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { t, i18n } = useTypeSafeTranslation();
 
-  const defaultTitle = "UMSF Bot";
-  const nextTitle = title ? `${title} - ${defaultTitle}` : defaultTitle;
+  const defaultTitle = t("project_title");
+
+  let _title = "";
+  if (!i18n.isInitialized) {
+    _title = "Loading...";
+  } else if (pageTitle) {
+    _title = `${pageTitle} - ${defaultTitle}`;
+  } else {
+    _title = defaultTitle;
+  }
 
   let body = null;
 
   if (loading) {
     body = <Loader height={500} size="large" />;
   } else if (error) {
-    body = <BotError message="Something went wrong!" />;
+    body = <BotError message={t("errors.default")} />;
   } else {
     body = children;
   }
@@ -45,7 +55,7 @@ const BotLayout: React.FC<LayoutProps> = ({
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <title>{nextTitle}</title>
+        <title>{_title}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"

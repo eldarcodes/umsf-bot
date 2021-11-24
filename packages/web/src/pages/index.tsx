@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Alert, DatePicker } from "@bot/ui";
+import { Alert } from "@bot/ui";
 import { useTypeSafeTranslation } from "../hooks/useTypeSafeTranslation";
 import Layout from "@bot/web/src/components/Layout";
 
@@ -9,7 +9,6 @@ const Home: NextPage = () => {
   return (
     <Layout title="Home">
       <Alert message={t("umsf")} type="info" showIcon />
-      <DatePicker />
     </Layout>
   );
 };

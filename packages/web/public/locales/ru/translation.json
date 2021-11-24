@@ -1,7 +1,7 @@
 {
+  "project_title": "UMSF Bot",
   "umsf": "Университет таможенного дела и финансов",
   "auth": { "loading": "Авторизация..." },
-  "dashboard": "Панель",
   "created_at": "Дата создания",
   "updated_at": "Дата изменения",
   "language": "Язык",
@@ -10,5 +10,7 @@
     "role_id": "Номер роли",
     "first_name": "Имя",
     "last_name": "Фамилия"
-  }
+  },
+  "pages": { "home": "Главная", "dashboard": "Панель" },
+  "errors": { "default": "Что-то пошло не так!" }
 }

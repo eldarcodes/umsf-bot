@@ -1,7 +1,7 @@
 {
+  "project_title": "UMSF Bot",
   "umsf": "Університет митної справи та фінансів",
   "auth": { "loading": "Авторизацiя..." },
-  "dashboard": "Панель",
   "created_at": "Дата створення",
   "updated_at": "Дата зміни",
   "language": "Мова",
@@ -10,5 +10,7 @@
     "role_id": "Номер ролі",
     "first_name": "Ім'я",
     "last_name": "Прізвище"
-  }
+  },
+  "pages": { "home": "Головна", "dashboard": "Панель" },
+  "errors": { "default": "Щось пішло не так!" }
 }
