@@ -6,6 +6,11 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import "antd/dist/antd.css";
 import { ThemeProvider } from "styled-components";
+import { useTranslation } from "react-i18next";
+import { ConfigProvider } from "antd";
+
+import antdUk from "antd/lib/locale/uk_UA";
+import antdRu from "antd/lib/locale/ru_RU";
 
 if (!isServer) {
   init_i18n();
@@ -16,14 +21,25 @@ const queryClient = new QueryClient({
 });
 
 function BotApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+  const { i18n } = useTranslation();
 
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
-    </ThemeProvider>
+  const antdLocale = {
+    uk: antdUk,
+    ru: antdRu,
+  };
+
+  const currentLocale = i18n.language as "uk" | "ru";
+
+  return (
+    <ConfigProvider locale={antdLocale[currentLocale]}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </ConfigProvider>
   );
 }
 
