@@ -13,7 +13,7 @@ const { Content } = Layout;
 
 interface LayoutProps {
   loading?: boolean;
-  error?: boolean;
+  isError?: boolean;
   title?: string;
 }
 
@@ -21,7 +21,7 @@ const BotLayout: React.FC<LayoutProps> = ({
   title: pageTitle,
   children,
   loading,
-  error,
+  isError,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { t, i18n } = useTypeSafeTranslation();
@@ -41,7 +41,7 @@ const BotLayout: React.FC<LayoutProps> = ({
 
   if (loading) {
     body = <Loader height={500} size="large" />;
-  } else if (error) {
+  } else if (isError) {
     body = <BotError message={t("errors.default")} />;
   } else {
     body = children;
