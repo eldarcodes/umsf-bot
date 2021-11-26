@@ -1,13 +1,12 @@
 import axios from "axios";
+import getToken from "../helpers/getToken";
 import { apiBaseUrl } from "../lib/constants";
-import { isServer } from "../lib/isServer";
 
 const instance = axios.create({
   baseURL: apiBaseUrl,
   timeout: 1000,
   headers: {
-    authorization:
-      (!isServer && `Bearer ${localStorage.getItem("token")}`) || "",
+    authorization: getToken(),
   },
 });
 
