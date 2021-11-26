@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { useQuery } from "react-query";
 import { Descriptions } from "@bot/ui";
 import { getUser } from "@bot/web/src/api";
@@ -7,13 +6,8 @@ import { get } from "lodash";
 import Time from "@bot/web/src/components/Time";
 import { useTypeSafeTranslation } from "../hooks/useTypeSafeTranslation";
 
-const Dashboard: NextPage = () => {
-  // const { data, isLoading, isError } = useQuery("user", getUser);
-  const { data, isLoading, isError } = {
-    data: {},
-    isLoading: false,
-    isError: false,
-  };
+const Dashboard: React.FC = () => {
+  const { data, isLoading, isError } = useQuery("user", getUser);
 
   const { t } = useTypeSafeTranslation();
 
@@ -52,7 +46,7 @@ const Dashboard: NextPage = () => {
   ];
 
   return (
-    <Layout title="Dashboard" loading={isLoading} error={isError}>
+    <Layout title="Dashboard" loading={isLoading} isError={isError}>
       <Descriptions title={t("user_info.title")} column={1} bordered>
         {dataSource.map(({ label, value }, index) => (
           <Descriptions.Item label={label} key={index}>

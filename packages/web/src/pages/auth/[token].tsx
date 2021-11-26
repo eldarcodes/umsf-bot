@@ -1,34 +1,11 @@
-import { useEffect, useState } from "react";
-import { Loader } from "@bot/ui";
-import { login as fetchLogin } from "../../api";
-import { useRouter } from "next/router";
+import { login } from "../../api";
+import { useQuery } from "react-query";
+import BotLayout from "@bot/web/src/components/Layout";
 
 const AuthPage: React.FC = () => {
-  const [loading, setLoading] = useState(false);
+  const { data, isLoading, isError } = useQuery("auth", login);
 
-  const router = useRouter();
-  const token = router.query.token;
-
-  const login = async () => {
-    setLoading(true);
-    try {
-      await fetchLogin(token);
-      router.push("/dashboard");
-    } catch (e) {}
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    if (token) {
-      login();
-    }
-  }, [token]);
-
-  if (loading) {
-    return <Loader height={600} size="large" />;
-  }
-
-  return null;
+  return <BotLayout isError={isError} loading={isLoading} />;
 };
 
 export default AuthPage;
